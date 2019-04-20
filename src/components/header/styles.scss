@@ -1,0 +1,13 @@
+.header{
+    background-color: #fff;
+    padding: 0 1rem;
+
+    ul{
+        list-style-type: none;
+        list-style-position: outside;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+}
