@@ -57,10 +57,10 @@ export default class Cidade extends React.Component{
 
     async componentDidMount(){
 
-        const cidade = await api.get('/cidade');
+        const cidade = await api.get('/cidade', { headers: { 'Access-Control-Allow-Origin': '*', }});
         this.setState({cidades : cidade.data });
 
-        const estado = await api.get('/estado');
+        const estado = await api.get('/estado',{ headers: { 'Access-Control-Allow-Origin': '*', }});
         this.setState({estados: estado.data });
         console.log(this.state.cidades)
     }

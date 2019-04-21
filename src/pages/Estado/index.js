@@ -54,17 +54,18 @@ export default class Estado extends React.Component{
     }
 
     getAll = async (e) => {
-       const estado = await api.get('/estado');
+       const estado = await api.get('/estado',{ headers: { 'Access-Control-Allow-Origin': '*', }});
        console.log(estado);
        this.setState({ data: estado.data });
     }
 
     async componentDidMount(){
-        const estado = await api.get('/estado');
-        console.log(estado);
+       const estado = await api.get('/estado',{ headers: { 'Access-Control-Allow-Origin': '*', }});
+       console.log(estado);
        this.setState({ data: estado.data });
       
     }
+
     handleDelete = async (e) => {
       
         console.log(e)
