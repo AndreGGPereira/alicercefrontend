@@ -52,15 +52,17 @@ export default class Estado extends React.Component{
     findSelectedCarIndex() {
         return this.state.estado.indexOf(this.state.selectedCar);
     }
-
+  
     getAll = async (e) => {
-       const estado = await api.get('/estado',{ headers: { 'Access-Control-Allow-Origin': '*', }});
+       const estado = await api.get('/estado',{ headers: { 'Access-Control-Allow-Origin': '*','X-Requested-With': 'XMLHttpRequest', 'X-CSRFToken': `Enter CSR Token here`, }});
+              //const estado = await api.get('/estado',{ headers: { 'Access-Control-Allow-Origin': '*', }});
        console.log(estado);
        this.setState({ data: estado.data });
     }
 
     async componentDidMount(){
-       const estado = await api.get('/estado',{ headers: { 'Access-Control-Allow-Origin': '*', }});
+       //const estado = await api.get('/estado',{ headers: { 'Access-Control-Allow-Origin': '*', }});
+       const estado = await api.get('/estado',{ headers: { 'Access-Control-Allow-Origin': '*','X-Requested-With': 'XMLHttpRequest', 'X-CSRFToken': `Enter CSR Token here`, }});
        console.log(estado);
        this.setState({ data: estado.data });
       
